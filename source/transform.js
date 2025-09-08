@@ -12,7 +12,6 @@
  * 
  * @returns {T}
  */
-
 const transform = (obj, transformFn) => {
     if (typeof transformFn !== 'function') {
         throw new TypeError('transformFn must be a function')
