@@ -23,15 +23,18 @@ const transform = (obj, transformFn) => {
 
     let res = Array.isArray(obj) ? [] : {}
 
-    for (const key in obj) {
-        let value = obj[key]
 
+
+    Object.keys(obj).forEach(key => {
+        let value = obj[key]
         if (typeof value === 'object' && value !== null) {
             res[key] = transform(value, transformFn)
         } else {
             res[key] = transformFn(value)
         }
-    }
+    })
+
+
 
     return res
 }

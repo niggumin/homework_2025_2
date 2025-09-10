@@ -36,6 +36,15 @@ QUnit.module('Тестируем функцию transform', () => {
             'Пустые объекты и массивы должны остаться пустыми, обычные значения преобразованы');
     });
 
+    QUnit.test('Работает с массивом на вход', (assert) => {
+        const originalArray = [1, 2, 3, 4];
+        const transformFunction = (value) => value * 5;
+        const result = transform(originalArray, transformFunction);
+
+        assert.deepEqual(result, [5, 10, 15, 20], 'Все элементы массива должны быть умножены на 2');
+    });
+
+
     QUnit.test('Работает с глубоко вложенными структурами', (assert) => {
         const originalObject = {
             a: {
